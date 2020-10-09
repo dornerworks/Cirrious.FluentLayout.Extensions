@@ -1,0 +1,22 @@
+
+name: Publish Nuget
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: |
+        nuget restore
+        msbuild Cirrious.FluentLayout.Extensions/Cirrious.FluentLayout.Extensions.csproj /verbosity:normal /t:Rebuild /p:Configuration=Release
+    - name: NuGet push
+      run: dotnet nuget push Cirrious.FluentLayout.Extensions/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
