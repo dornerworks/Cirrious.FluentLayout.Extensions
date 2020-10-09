@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,6 +12,15 @@
         <RootNamespace>Cirrious.FluentLayout.Extensions</RootNamespace>
         <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
         <AssemblyName>Cirrious.FluentLayout.Extensions</AssemblyName>
+        <PackageId>Cirrious.FluentLayout.Extensions</PackageId>
+        <PackageVersion>0.0.1</PackageVersion>
+        <Authors>C. Brandon Butler</Authors>
+        <Copyright>2020 DornerWorks, Ltd.</Copyright>
+        <PackageLicenseUrl>https://github.com/dornerworks/Cirrious.FluentLayout.Extensions/blob/main/LICENSE.md</PackageLicenseUrl>
+        <Owners>DornerWorks, Ltd.</Owners>
+        <PackageProjectUrl>https://github.com/dornerworks/Cirrious.FluentLayout.Extensions</PackageProjectUrl>
+        <Description>Some useful extension methods for Cirrious.FluentLayout</Description>
+        <PackOnBuild>true</PackOnBuild>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -51,4 +61,5 @@
       <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+    <Import Project="..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.targets')" />
 </Project>
